@@ -1,0 +1,80 @@
+name: Build Dopamine IPA
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Select Xcode
+      run: |
+        XCODE_PATH=$(ls -d /Applications/Xcode*.app 2>/dev/null | sort -V | tail -1)
+        echo "Using Xcode: $XCODE_PATH"
+        sudo xcode-select -s "$XCODE_PATH/Contents/Developer"
+        xcodebuild -version
+
+    - name: Find iOS SDK PrivateFrameworks path
+      run: |
+        SDK_PATH=$(xcrun --sdk iphoneos --show-sdk-path)
+        echo "SDK_PATH=$SDK_PATH" >> $GITHUB_ENV
+        echo "iOS SDK: $SDK_PATH"
+        ls "$SDK_PATH/System/Library/PrivateFrameworks/Preferences.framework" 2>/dev/null && echo "Preferences.framework found" || echo "Preferences.framework not found in SDK"
+
+    - name: Build
+      run: |
+        cd Application
+        xcodebuild \
+          -project Dopamine.xcodeproj \
+          -target Dopamine \
+          -sdk iphoneos \
+          -configuration Release \
+          -derivedDataPath build \
+          CODE_SIGNING_ALLOWED=NO \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          DEVELOPMENT_TEAM="" \
+          ONLY_ACTIVE_ARCH=NO \
+          FRAMEWORK_SEARCH_PATHS='$(inherited) $(SDKROOT)/System/Library/PrivateFrameworks' \
+          OTHER_LDFLAGS='$(inherited) -weak_framework Preferences' \
+          GCC_PREPROCESSOR_DEFINITIONS='$(inherited) FAKE_JAILBREAK=1' \
+          2>&1 | tee build.log || true
+
+    - name: Check build result
+      run: |
+        APP_PATH=$(find Application/build -name "Dopamine.app" -type d | head -1)
+        if [ -z "$APP_PATH" ]; then
+          echo "=== BUILD FAILED ==="
+          echo "Last 150 lines of build log:"
+          tail -150 Application/build.log
+          exit 1
+        fi
+        echo "APP_PATH=$APP_PATH" >> $GITHUB_ENV
+        echo "Build succeeded: $APP_PATH"
+        ls -la "$APP_PATH"
+
+    - name: Create IPA
+      run: |
+        mkdir -p Payload
+        cp -r "$APP_PATH" Payload/
+        zip -r Dopamine.ipa Payload
+        echo "IPA created successfully"
+        ls -la Dopamine.ipa
+
+    - name: Upload IPA
+      uses: actions/upload-artifact@v4
+      with:
+        name: Dopamine-IPA
+        path: Dopamine.ipa
+
+    - name: Upload build log
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-log
+        path: Application/build.log
