@@ -31,7 +31,7 @@ jobs:
         cd Application
         xcodebuild \
           -project Dopamine.xcodeproj \
-          -target Dopamine \
+          -scheme Dopamine \
           -sdk iphoneos \
           -configuration Release \
           -derivedDataPath build \
