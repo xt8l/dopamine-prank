@@ -451,7 +451,6 @@
 				exploit/utils.h,
 				Info.plist,
 			);
-			target = 2F11A313301BFDAE00C1C9F0 /* momentarius */;
 		};
 		8C3B2DF8301BC05200C979A6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -461,7 +460,6 @@
 			publicHeaders = (
 				ClearSword.h,
 			);
-			target = 8C3B2DED301BC05200C979A6 /* ClearSword */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -1087,112 +1085,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		2F11A314301BFDAE00C1C9F0 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2F11A327301BFED300C1C9F0 /* momentarius.h in Headers */,
-				7CD8FC423022AADF00AF864E /* utils.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3165CFCA3020A516002737DA /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3165CFF63020A565002737DA /* mach_vm.h in Headers */,
-				3165CFF73020A565002737DA /* gfx_patchfinder.h in Headers */,
-				3165CFF83020A565002737DA /* gfx.h in Headers */,
-				3165CFF93020A565002737DA /* arm64.h in Headers */,
-				3165CFFA3020A565002737DA /* IOGPUDevice.h in Headers */,
-				3165CFFB3020A565002737DA /* ipc_port.h in Headers */,
-				3165CFFC3020A565002737DA /* titan.h in Headers */,
-				3165CFFD3020A565002737DA /* info.h in Headers */,
-				3165D0043020A579002737DA /* Titan.h in Headers */,
-				3165CFFE3020A565002737DA /* kernel_patchfinder.h in Headers */,
-				3165CFFF3020A565002737DA /* offsets.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8C05AFFE2B63152B001A7CF3 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8C2B1FDA2B532374009BA166 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8C2B1FF02B5324DE009BA166 /* dmaFail.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8C3B2DE9301BC05200C979A6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8C5FA8CF2BDD36B6008C246F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8C5FA92C2BDD47D5008C246F /* _ANEStrings.h in Headers */,
-				8C5FA8D72BDD36B6008C246F /* weightBufs.h in Headers */,
-				8C5FA9242BDD47D5008C246F /* _ANEHashEncoding.h in Headers */,
-				8C5FA91A2BDD47D5008C246F /* iokit.h in Headers */,
-				8C5FA9232BDD47D5008C246F /* _ANEErrors.h in Headers */,
-				8C5FA92F2BDD47D5008C246F /* NSCopying.h in Headers */,
-				8C5FA91C2BDD47D5008C246F /* _ANEClient.h in Headers */,
-				8C5FA9212BDD47D5008C246F /* _ANEDeviceController.h in Headers */,
-				8C5FA9252BDD47D5008C246F /* _ANEIOSurfaceObject.h in Headers */,
-				8C5FA93A2BDD47D5008C246F /* IOGPU.h in Headers */,
-				8C5FA9332BDD47D5008C246F /* exploit.h in Headers */,
-				8C5FA91F2BDD47D5008C246F /* _ANEDaemonProtocol.h in Headers */,
-				8C5FA92D2BDD47D5008C246F /* AppleNeuralEngine-Structs.h in Headers */,
-				8C5FA9202BDD47D5008C246F /* _ANEDataReporter.h in Headers */,
-				8C5FA9342BDD47D5008C246F /* ANEDirectIn.h in Headers */,
-				8C5FA9272BDD47D5008C246F /* _ANEModel.h in Headers */,
-				8C5FA9292BDD47D5008C246F /* _ANEProgramForEvaluation.h in Headers */,
-				8C5FA9312BDD47D5008C246F /* aneProgram.h in Headers */,
-				8C5FA9302BDD47D5008C246F /* NSSecureCoding.h in Headers */,
-				8C5FA9282BDD47D5008C246F /* _ANEPerformanceStats.h in Headers */,
-				8C5FA92E2BDD47D5008C246F /* AppleNeuralEngine.h in Headers */,
-				8C5FA9392BDD47D5008C246F /* IOSurface.h in Headers */,
-				8C5FA92A2BDD47D5008C246F /* _ANEQoSMapper.h in Headers */,
-				8C5FA92B2BDD47D5008C246F /* _ANERequest.h in Headers */,
-				8C5FA91E2BDD47D5008C246F /* _ANEDaemonConnection.h in Headers */,
-				8C5FA91D2BDD47D5008C246F /* _ANECloneHelper.h in Headers */,
-				8C5FA9222BDD47D5008C246F /* _ANEDeviceInfo.h in Headers */,
-				8C5FA9262BDD47D5008C246F /* _ANELog.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8C5FA8DF2BDD36BF008C246F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8C5FA8E72BDD36BF008C246F /* multicast_bytecopy.h in Headers */,
-				8C5FA95C2BDD6C0C008C246F /* necp.h in Headers */,
-				8CF3E8602F72D51500931CA8 /* DarkSword.h in Headers */,
-				8C5FA95E2BDD6C0C008C246F /* IOSurfaceRoot.h in Headers */,
-				8C5FA96A2BDD6C0C008C246F /* xpaci.h in Headers */,
-				8C5FA96D2BDD6C0C008C246F /* exploit.h in Headers */,
-				8C5FA9632BDD6C0C008C246F /* iokit.h in Headers */,
-				8C5FA9642BDD6C0C008C246F /* spray.h in Headers */,
-				8C5FA96B2BDD6C0C008C246F /* kernel_base.h in Headers */,
-				8C5FA9622BDD6C0C008C246F /* IOGPU.h in Headers */,
-				8C5FA95B2BDD6C0C008C246F /* mcast.h in Headers */,
-				8C5FA9602BDD6C0C008C246F /* port_utils.h in Headers */,
-				8C5FA96C2BDD6C0C008C246F /* kernel_rw.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		8C7198142ABF0E82003C6658 /* Dopamine */ = {
@@ -1289,7 +1181,6 @@
 				8C609C9F2C19B6FA0023DD12 /* libkrw-dopamine.deb in Resources */,
 				04DD0B372B7BA6180055DE4F /* LICENSE.md in Resources */,
 				04DD0B3A2B7BF3E80055DE4F /* LICENSE_libc.md in Resources */,
-				8C56D4CD2B7C118B001C03D3 /* LICENSE_kfd.md in Resources */,
 				8C56D4BF2B7C0DF2001C03D3 /* LICENSE_ChOma.md in Resources */,
 				8C56D4C22B7C0DF2001C03D3 /* LICENSE_Fugu15.md in Resources */,
 				8C56D4C02B7C0DF2001C03D3 /* LICENSE_Fugu15_Rootful.md in Resources */,
@@ -1308,7 +1199,6 @@
 				8C512B922B5C9F9400C6F14A /* zebra.deb in Resources */,
 				8CCD8A882B6F16D0004B72B0 /* libroot.deb in Resources */,
 				8C296BAE2BE05914007C2AD1 /* LICENSE_plooshinit.md in Resources */,
-				8C5FA9712BDD81EF008C246F /* LICENSE_weightBufs.md in Resources */,
 				04DD0B592B7D19E60055DE4F /* Localizable.strings in Resources */,
 				04C246B32B74B65900E17924 /* PkgManagers.plist in Resources */,
 				04DD0B402B7CBD3D0055DE4F /* Themes.plist in Resources */,
@@ -1368,7 +1258,6 @@
 				8C029F602B4E25350071DE58 /* DOEnvironmentManager.m in Sources */,
 				04C246A12B73225800E17924 /* DODownloadViewController.m in Sources */,
 				042479B52B66916B0082581B /* DOLyricsLogItemView.m in Sources */,
-				8C029F4E2B4E1FF30071DE58 /* DOExploit.m in Sources */,
 				04C2469D2B73220400E17924 /* DOUpdateCircleView.m in Sources */,
 				04C246B12B74B05800E17924 /* DOPkgManagerPickerView.m in Sources */,
 				042479B42B66916B0082581B /* DOProgressiveBlurView.m in Sources */,
