@@ -9,7 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DOEnvironmentManager : NSObject
+@interface DOEnvironmentManager : NSObject {
+    BOOL _isJailbroken;
+    NSString *_jailbrokenVersion;
+}
 
 @property (nonatomic, readonly) BOOL isJailbroken;
 @property (nonatomic, readonly) NSString *jailbrokenVersion;
