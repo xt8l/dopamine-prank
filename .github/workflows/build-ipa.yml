@@ -26,9 +26,19 @@ jobs:
         echo "iOS SDK: $SDK_PATH"
         ls "$SDK_PATH/System/Library/PrivateFrameworks/Preferences.framework" 2>/dev/null && echo "Preferences.framework found" || echo "Preferences.framework not found in SDK"
 
-    - name: Build
+    - name: Debug project
       run: |
         cd Application
+        echo "=== xcodebuild -list ==="
+        xcodebuild -list -project Dopamine.xcodeproj 2>&1 || true
+        echo "=== Scheme file ==="
+        cat Dopamine.xcodeproj/xcshareddata/xcschemes/Dopamine.xcscheme 2>&1 || echo "No scheme file"
+
+    - name: Build
+      continue-on-error: true
+      run: |
+        cd Application
+        set -o pipefail
         xcodebuild \
           -project Dopamine.xcodeproj \
           -scheme Dopamine \
@@ -43,7 +53,8 @@ jobs:
           FRAMEWORK_SEARCH_PATHS='$(inherited) $(SDKROOT)/System/Library/PrivateFrameworks' \
           OTHER_LDFLAGS='$(inherited) -weak_framework Preferences' \
           GCC_PREPROCESSOR_DEFINITIONS='$(inherited) FAKE_JAILBREAK=1' \
-          2>&1 | tee build.log || true
+          2>&1 | tee build.log
+        echo "XCODEBUILD_EXIT=$?" >> $GITHUB_ENV
 
     - name: Check build result
       run: |
