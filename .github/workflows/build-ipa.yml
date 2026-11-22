@@ -50,7 +50,6 @@ jobs:
           CODE_SIGNING_REQUIRED=NO \
           DEVELOPMENT_TEAM="" \
           ONLY_ACTIVE_ARCH=NO \
-          FRAMEWORK_SEARCH_PATHS='$(inherited) $(SDKROOT)/System/Library/PrivateFrameworks' \
           OTHER_LDFLAGS='$(inherited) -weak_framework Preferences' \
           GCC_PREPROCESSOR_DEFINITIONS='$(inherited) FAKE_JAILBREAK=1' \
           2>&1 | tee build.log

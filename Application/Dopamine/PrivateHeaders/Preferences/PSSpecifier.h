@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, PSSpecifierCellType) {
 @property (nonatomic, retain) id target;
 @property (nonatomic) SEL getter;
 @property (nonatomic) SEL setter;
+@property (nonatomic) SEL buttonAction;
 @property (nonatomic) NSInteger cellType;
 @property (nonatomic, retain) Class detailControllerClass;
 @property (nonatomic, retain) Class editPaneClass;
