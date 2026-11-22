@@ -569,22 +569,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dopamine/PrivateHeaders",
-					"$(PROJECT_DIR)/Dopamine",
-					"$(PROJECT_DIR)/Dopamine/App Delegates",
-					"$(PROJECT_DIR)/Dopamine/Extensions",
-					"$(PROJECT_DIR)/Dopamine/Jailbreak",
-					"$(PROJECT_DIR)/Dopamine/Headers",
-					"$(PROJECT_DIR)/Dopamine/UI",
-					"$(PROJECT_DIR)/Dopamine/UI/ActionMenu",
-					"$(PROJECT_DIR)/Dopamine/UI/Settings",
-					"$(PROJECT_DIR)/Dopamine/UI/Settings/PSLists",
-					"$(PROJECT_DIR)/Dopamine/UI/Settings/Specifiers",
-					"$(PROJECT_DIR)/Dopamine/UI/Themes",
-					"$(PROJECT_DIR)/Dopamine/UI/PkgManagers",
-					"$(PROJECT_DIR)/Dopamine/UI/Update",
-					"$(PROJECT_DIR)/Dopamine/UI/Log",
-					"$(PROJECT_DIR)/Dopamine/UI/Log/Indicator",
-					"$(PROJECT_DIR)/Dopamine/UI/Transition",
 				);
 				INFOPLIST_FILE = Dopamine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -613,22 +597,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dopamine/PrivateHeaders",
-					"$(PROJECT_DIR)/Dopamine",
-					"$(PROJECT_DIR)/Dopamine/App Delegates",
-					"$(PROJECT_DIR)/Dopamine/Extensions",
-					"$(PROJECT_DIR)/Dopamine/Jailbreak",
-					"$(PROJECT_DIR)/Dopamine/Headers",
-					"$(PROJECT_DIR)/Dopamine/UI",
-					"$(PROJECT_DIR)/Dopamine/UI/ActionMenu",
-					"$(PROJECT_DIR)/Dopamine/UI/Settings",
-					"$(PROJECT_DIR)/Dopamine/UI/Settings/PSLists",
-					"$(PROJECT_DIR)/Dopamine/UI/Settings/Specifiers",
-					"$(PROJECT_DIR)/Dopamine/UI/Themes",
-					"$(PROJECT_DIR)/Dopamine/UI/PkgManagers",
-					"$(PROJECT_DIR)/Dopamine/UI/Update",
-					"$(PROJECT_DIR)/Dopamine/UI/Log",
-					"$(PROJECT_DIR)/Dopamine/UI/Log/Indicator",
-					"$(PROJECT_DIR)/Dopamine/UI/Transition",
 				);
 				INFOPLIST_FILE = Dopamine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
