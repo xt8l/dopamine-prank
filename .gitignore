@@ -2,7 +2,7 @@
 /.build
 /*.xcodeproj
 xcuserdata/
-xcshareddata/
+xcshareddata/IDEWorkspaceChecks.plist
 DerivedData/
 .swiftpm/xcode/
 /Package.resolved
