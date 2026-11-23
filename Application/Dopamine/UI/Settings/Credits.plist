@@ -316,6 +316,44 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Signing Certificates</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSStaticTextCell</string>
+			<key>cellClass</key>
+			<string>DOButtonCell</string>
+			<key>title</key>
+			<string>Upload P12 Certificate</string>
+			<key>buttonHeight</key>
+			<integer>44</integer>
+			<key>key</key>
+			<string>uploadP12</string>
+			<key>image</key>
+			<string>key.fill</string>
+			<key>action</key>
+			<string>uploadP12Certificate</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSStaticTextCell</string>
+			<key>cellClass</key>
+			<string>DOButtonCell</string>
+			<key>title</key>
+			<string>Upload Provisioning Profile</string>
+			<key>buttonHeight</key>
+			<integer>44</integer>
+			<key>key</key>
+			<string>uploadMP</string>
+			<key>image</key>
+			<string>doc.badge.plus</string>
+			<key>action</key>
+			<string>uploadMobileprovision</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
 			<key>footerText</key>
 			<string></string>
 		</dict>

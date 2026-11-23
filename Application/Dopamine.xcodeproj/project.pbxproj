@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1A0000100000001ESIGN001 /* DOSigningManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A0000200000002ESIGN002 /* DOSigningManager.m */; };
+		E1A0000300000003ESIGN003 /* DOZipHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A0000400000004ESIGN004 /* DOZipHelper.m */; };
 		52433864ACC2ED7E86421E7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AEFCB063B6E88CD5C33C78 /* main.m */; };
 		D074BEE3BDA8AC20E5CB75E8 /* DOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 444E150A146E09986E1A2CE0 /* DOAppDelegate.m */; };
 		48F444EA9CE6630D75BECC93 /* DOSceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A592B42A0C6AA28C14503C7D /* DOSceneDelegate.m */; };
@@ -97,6 +99,8 @@
 		A072A55BE5A87EF2640A287A /* DOExploitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Jailbreak/DOExploitManager.m"; sourceTree = "<group>"; };
 		25A2A8B888BC18D1B7394143 /* DOJailbreaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Jailbreak/DOJailbreaker.m"; sourceTree = "<group>"; };
 		1C820ACCAE77AE019BD1033E /* DOPreferenceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Jailbreak/DOPreferenceManager.m"; sourceTree = "<group>"; };
+		E1A0000200000002ESIGN002 /* DOSigningManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Jailbreak/DOSigningManager.m"; sourceTree = "<group>"; };
+		E1A0000400000004ESIGN004 /* DOZipHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Jailbreak/DOZipHelper.m"; sourceTree = "<group>"; };
 		1A81FECD9F8C74CA93DB2285 /* DOGlobalAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UI/DOGlobalAppearance.m"; sourceTree = "<group>"; };
 		D31D1BA21DBE2AFBDEFDDD9C /* DOHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UI/DOHeaderView.m"; sourceTree = "<group>"; };
 		018093EF174FFB99B1011362 /* DOJailbreakButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UI/DOJailbreakButton.m"; sourceTree = "<group>"; };
@@ -405,6 +409,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1A0000100000001ESIGN001 /* DOSigningManager.m in Sources */,
+				E1A0000300000003ESIGN003 /* DOZipHelper.m in Sources */,
 				52433864ACC2ED7E86421E7B /* main.m in Sources */,
 				D074BEE3BDA8AC20E5CB75E8 /* DOAppDelegate.m in Sources */,
 				48F444EA9CE6630D75BECC93 /* DOSceneDelegate.m in Sources */,
