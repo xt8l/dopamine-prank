@@ -234,6 +234,8 @@
 				A072A55BE5A87EF2640A287A /* DOExploitManager.m */,
 				25A2A8B888BC18D1B7394143 /* DOJailbreaker.m */,
 				1C820ACCAE77AE019BD1033E /* DOPreferenceManager.m */,
+				E1A0000200000002ESIGN002 /* DOSigningManager.m */,
+				E1A0000400000004ESIGN004 /* DOZipHelper.m */,
 				1A81FECD9F8C74CA93DB2285 /* DOGlobalAppearance.m */,
 				D31D1BA21DBE2AFBDEFDDD9C /* DOHeaderView.m */,
 				018093EF174FFB99B1011362 /* DOJailbreakButton.m */,
