@@ -25,7 +25,7 @@
                 [self.navigationController popViewControllerAnimated:YES];
             });
         });
-    }];
+    } viewController:self];
     picker.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:picker];
     [NSLayoutConstraint activateConstraints:@[

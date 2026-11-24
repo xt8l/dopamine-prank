@@ -129,4 +129,19 @@
     // No action needed
 }
 
+#pragma mark - Remove Jailbreak
+
+- (void)removeJailbreak
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remove Jailbreak" message:@"This will reset the jailbreak status. The app will close." preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Remove" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"fakeJailbroken"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"fakeJailbrokenVersion"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        exit(0);
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 @end

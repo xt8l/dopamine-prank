@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DOPkgManagerPickerView : UIView
 
+-(id)initWithCallback:(void (^)(BOOL))callback viewController:(UIViewController *)vc;
 -(id)initWithCallback:(void (^)(BOOL))callback;
 
 @end

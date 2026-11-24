@@ -13,8 +13,6 @@
 #import "DOActionMenuButton.h"
 #import "DOUpdateViewController.h"
 #import "DOLogCrashViewController.h"
-#import "DOSigningManager.h"
-#import "DOThemeManager.h"
 #import <pthread.h>
 #import <sys/sysctl.h>
 
@@ -23,7 +21,6 @@
 @property DOJailbreakButton *jailbreakBtn;
 @property NSArray<NSLayoutConstraint *> *jailbreakButtonConstraints;
 @property DOActionMenuButton *updateButton;
-@property UIView *esignBtn;
 @property(nonatomic) BOOL hideStatusBar;
 @property(nonatomic) BOOL hideHomeIndicator;
 
@@ -159,43 +156,6 @@
         [self.jailbreakBtn.centerYAnchor constraintEqualToAnchor:buttonPlaceHolder.centerYAnchor]
     ])];
 
-    // ESing Button
-    UIView *esignPlaceHolder = [[UIView alloc] init];
-    [esignPlaceHolder setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [stackView addArrangedSubview:esignPlaceHolder];
-    [NSLayoutConstraint activateConstraints:@[
-        [esignPlaceHolder.heightAnchor constraintEqualToConstant:50]
-    ]];
-
-    UIAction *esignAction = [UIAction actionWithTitle:@"ESing" image:[UIImage systemImageNamed:@"signature" withConfiguration:[DOGlobalAppearance smallIconImageConfiguration]] identifier:@"esign" handler:^(__kindof UIAction * _Nonnull action) {
-        [self startESigning];
-    }];
-
-    self.esignBtn = [[UIView alloc] init];
-    self.esignBtn.backgroundColor = [DOThemeManager menuColorWithAlpha:1.0];
-    self.esignBtn.layer.cornerRadius = 14;
-    self.esignBtn.layer.masksToBounds = YES;
-    self.esignBtn.layer.cornerCurve = kCACornerCurveContinuous;
-    self.esignBtn.translatesAutoresizingMaskIntoConstraints = NO;
-
-    DOActionMenuButton *esignButton = [DOActionMenuButton buttonWithAction:esignAction chevron:NO];
-    [esignButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-    esignButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.esignBtn addSubview:esignButton];
-    [NSLayoutConstraint activateConstraints:@[
-        [esignButton.leadingAnchor constraintEqualToAnchor:self.esignBtn.leadingAnchor],
-        [esignButton.trailingAnchor constraintEqualToAnchor:self.esignBtn.trailingAnchor],
-        [esignButton.topAnchor constraintEqualToAnchor:self.esignBtn.topAnchor],
-        [esignButton.bottomAnchor constraintEqualToAnchor:self.esignBtn.bottomAnchor],
-    ]];
-
-    [self.view addSubview:self.esignBtn];
-    [NSLayoutConstraint activateConstraints:@[
-        [self.esignBtn.leadingAnchor constraintEqualToAnchor:stackView.leadingAnchor],
-        [self.esignBtn.trailingAnchor constraintEqualToAnchor:stackView.trailingAnchor],
-        [self.esignBtn.heightAnchor constraintEqualToAnchor:esignPlaceHolder.heightAnchor],
-        [self.esignBtn.centerYAnchor constraintEqualToAnchor:esignPlaceHolder.centerYAnchor]
-    ]];
 }
 
 - (NSString *)jailbreakButtonTitle
@@ -266,51 +226,6 @@
     });
 }
 
-- (void)startESigning
-{
-    DOSigningManager *sm = [DOSigningManager sharedManager];
-    if (![sm hasRequiredCertificates]) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Missing Certificates" message:@"Upload your .p12 certificate and .mobileprovision in Credits before using ESing." preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"Go to Credits" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self.navigationController pushViewController:[[DOCreditsViewController alloc] init] animated:YES];
-        }]];
-        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-        [self presentViewController:alert animated:YES completion:nil];
-        return;
-    }
-
-    // Ask for P12 password
-    UIAlertController *passwordAlert = [UIAlertController alertControllerWithTitle:@"P12 Password" message:@"Enter the password for your .p12 certificate" preferredStyle:UIAlertControllerStyleAlert];
-    [passwordAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Password";
-        textField.secureTextEntry = YES;
-    }];
-    [passwordAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-    [passwordAlert addAction:[UIAlertAction actionWithTitle:@"Sign" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSString *password = passwordAlert.textFields.firstObject.text ?: @"";
-        [self performESigningWithPassword:password];
-    }]];
-    [self presentViewController:passwordAlert animated:YES completion:nil];
-}
-
-- (void)performESigningWithPassword:(NSString *)password
-{
-    // Show progress alert
-    UIAlertController *progressAlert = [UIAlertController alertControllerWithTitle:@"ESigning..." message:@"Preparing..." preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:progressAlert animated:YES completion:nil];
-
-    [[DOSigningManager sharedManager] startESignFromViewController:self p12Password:password progress:^(NSString *status, float progress) {
-        progressAlert.message = [NSString stringWithFormat:@"%@ (%.0f%%)", status, progress * 100];
-    } completion:^(BOOL success, NSError *error) {
-        [progressAlert dismissViewControllerAnimated:YES completion:^{
-            if (!success) {
-                UIAlertController *errAlert = [UIAlertController alertControllerWithTitle:@"ESigning Failed" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-                [errAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-                [self presentViewController:errAlert animated:YES completion:nil];
-            }
-        }];
-    }];
-}
 
 - (void)fadeToBlack:(void (^)(void))completion
 {
