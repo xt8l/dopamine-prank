@@ -87,19 +87,11 @@
     UIDocumentPickerViewController *picker;
 #ifdef __IPHONE_14_0
     if (@available(iOS 14.0, *)) {
-        UTType *type;
-        if ([extension isEqualToString:@"p12"]) {
-            type = [UTType typeWithFilenameExtension:@"p12"];
-        } else {
-            type = [UTType typeWithFilenameExtension:@"mobileprovision"];
-        }
-        if (!type) type = UTTypeData;
-        picker = [[UIDocumentPickerViewController alloc] initForOpeningContentTypes:@[type]];
+        picker = [[UIDocumentPickerViewController alloc] initForOpeningContentTypes:@[UTTypeData, UTTypeItem]];
     } else
 #endif
     {
-        NSString *uti = [extension isEqualToString:@"p12"] ? @"com.rsa.pkcs-12" : @"com.apple.mobileprovision";
-        picker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[uti, @"public.data"] inMode:UIDocumentPickerModeImport];
+        picker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.data", @"public.item"] inMode:UIDocumentPickerModeImport];
     }
     picker.delegate = self;
     picker.allowsMultipleSelection = NO;
