@@ -2,8 +2,10 @@
 
 # Dopamine
 
-A rootless semi-untethered jailbreak for iOS 15.0 - 17.3.1 (arm64e), iOS 15.0 - 18.7.1, 26.0 - 26.0.1 (A12/A13) and iOS 15.0 - 18.7.1 (arm64). More details will follow here soon.
+This is simulation jailbreak. You will not be granted jailbreak features
 
-Please note that all issues related to version support will be deleted without response.
+Ios 15.0-27.3 (every device)
+
+For updates and update requests and suggestions is here: https://discord.gg/9SYbNV9xB
 
 Official website / download: https://ellekit.space/dopamine/
